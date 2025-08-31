@@ -49,33 +49,37 @@ export default function FAQPage() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+      <main className="pt-20 sm:pt-24 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-balance">
               Frequently Asked <span className="gradient-text">Questions</span>
             </h1>
-            <p className="text-xl text-muted-foreground">Everything you need to know about BrandVoice.ai</p>
+            <p className="text-lg sm:text-xl text-muted-foreground text-pretty">
+              Everything you need to know about BrandVoice.ai
+            </p>
           </div>
 
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="glass-card border-border/50 rounded-lg px-6"
+                className="glass-card border-border/50 rounded-lg px-4 sm:px-6"
               >
-                <AccordionTrigger className="text-left hover:no-underline py-6">
-                  <span className="font-semibold">{faq.question}</span>
+                <AccordionTrigger className="text-left hover:no-underline py-4 sm:py-6">
+                  <span className="font-semibold text-sm sm:text-base leading-relaxed pr-2">{faq.question}</span>
                 </AccordionTrigger>
-                <AccordionContent className="pb-6 text-muted-foreground">{faq.answer}</AccordionContent>
+                <AccordionContent className="pb-4 sm:pb-6 text-muted-foreground text-sm sm:text-base leading-relaxed">
+                  {faq.answer}
+                </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
 
-          <div className="text-center mt-16">
-            <p className="text-muted-foreground mb-4">Still have questions?</p>
-            <p className="text-sm text-muted-foreground">
+          <div className="text-center mt-12 sm:mt-16">
+            <p className="text-muted-foreground mb-3 sm:mb-4 text-sm sm:text-base">Still have questions?</p>
+            <p className="text-xs sm:text-sm text-muted-foreground">
               Reach out to our team at{" "}
               <a href="mailto:support@brandvoice.ai" className="text-purple-400 hover:text-purple-300">
                 support@brandvoice.ai

@@ -1,18 +1,19 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { MobileNav } from "@/components/mobile-nav"
 
 export function Navbar() {
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 rounded-lg gradient-purple-pink-blue flex items-center justify-center">
-                <span className="text-white font-bold text-sm">BV</span>
+            <Link href="/" className="flex items-center space-x-3">
+              <div className="w-10 h-10 rounded-lg gradient-purple-pink-blue flex items-center justify-center">
+                <span className="text-white font-bold text-base">BV</span>
               </div>
-              <span className="font-bold text-xl">BrandVoice.ai</span>
+              <span className="font-bold text-lg sm:text-xl hidden xs:block">BrandVoice.ai</span>
             </Link>
           </div>
 
@@ -33,14 +34,12 @@ export function Navbar() {
             </div>
           </div>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-4">
             <ThemeToggle />
-            <Button variant="outline" asChild>
+            <Button variant="outline" asChild className="hidden sm:flex bg-transparent">
               <Link href="/sign-in">Sign In</Link>
             </Button>
-            <Button className="gradient-purple-pink-blue text-white" asChild>
-              <Link href="/sign-in?redirect_url=/dashboard">Start Free</Link>
-            </Button>
+            <MobileNav />
           </div>
         </div>
       </div>
